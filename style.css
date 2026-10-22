@@ -1,6 +1,37 @@
+body {
+    background-color: #FF003b;
+    color: #16354a;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
 header {
     background-color: #007BFF;
     color: white;
     padding: 25px;
     text-align: center;
+}
+
+main {
+    min-height: 60vh;
+}
+
+footer {
+    background-color: #16354a;
+    color: white;
+    padding: 20px;
+}
+
+.navbar {
+    color: white;
+    background-color: #087ca7;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navlink {
+    color:wheat;
 }
