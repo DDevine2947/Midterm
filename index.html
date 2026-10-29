@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,66 +9,87 @@
 
     <title>AquaDevine Pool Care Management</title>
 
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-
-        rel="stylesheet">
-
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-     <script src="js/main.js" defer></script>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="index.js" defer></script>
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
-            <div class="container">
-                <a class="navbar-brand" href="index.html">AquaDevine Pools</a>
-                <button class="navbar-toggler" 
-                        type="button" 
-                        data-bs-toggle="collapse"
-                        data-bs-target="#mainNavigation" 
-                        aria-controls="mainNavigation" 
-                        aria-expanded="false"
-                        aria-label="Toggle navigation">
 
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="mainNavigation">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html">Home</a>
-                        </li>
+    <div id="header"></div>
+    
+    <main class="container">
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="tasks.html">Tasks</a>
-                        </li>
+        <section>
+            <h2>Welcome to AquaDevine</h2>
+            <p>Manage your pool cleaning and maintenance tasks here.</p>
+            <a href="tasks.html">Manage Tasks</a>
+        </section>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.html">About</a>
-                        </li>
+   
+    <section>
+        <h2>Task Dashboard</h2>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact</a>
-                        </li>
+        <p>Total Tasks: <span id="totalTasks">0</span></p>
+        <p>To Do: <span id="todoTasks">0</span></p>
+        <p>In Progress: <span id="inProgressTasks">0</span></p>
+        <p>Completed: <span id="completedTasks">0</span></p>
+    </section>
+   
+    <section>
+        <h2>Task Analytics</h2>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="services.html">Services</a>
-                        </li>
+        <p>To Do: <span id="todoChartLabel">0 tasks</span></p>
+        <progress id="todoBar" value="0" max="100"></progress>
 
-                    </ul>
-                </div>
-            </div>     
-        </nav>
+        <p>In Progress: <span id="progressChartLabel">0 tasks</span></p>
+        <progress id="progressBar" value="0" max="100"></progress>
 
-    </header>
+        <p>Completed: <span id="completedChartLabel">0 tasks</span></p>
+        <progress id="completedBar" value="0" max="100"></progress>
+    </section>
+    
+    <section>
+        <h2>Pool Cleaning Task Board</h2>
 
-    <main>
-        <h2>Welcome to AquaDevine Pool Care Management</h2>
-        <P>Our team of experts can assist in any and all pool care needs.</P>
+        <div class="kanban-column">
+            <h3>To Do</h3>
+            <div id="todoColumn">
+                <p>No tasks yet.</p>
+            </div>
+        </div>
+
+        <div class="kanban-column">
+            <h3>In Progress</h3>
+            <div id="inProgressColumn">
+                <p>No tasks yet.</p>
+            </div>
+        </div>
+
+        <div class="kanban-column">
+            <h3>Completed</h3>
+            <div id="completedColumn">
+                <p>No tasks yet.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Latest Activity</h2>
+
+        <ul id="activityList">
+            <li>No recent activity yet.</li>
+        </ul>
+    </section>
+
     </main>
 
-    <footer class="text-center my-5">
-        <p>&copy; 2024 AquaDevine Pools. All rights reserved.</p>
-    </footer>
+    <div id="footer">
+    </div>
+
 </body>
 </html>
