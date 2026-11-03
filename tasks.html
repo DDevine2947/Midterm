@@ -18,6 +18,130 @@
     <body>
         <div id="header"></div>
         
+        <main class="container py-4">
+
+            <h1 class="text-center mb-4">AquaDevine Task Manager</h1>
+
+            <p class="text-center mb-5">Manage pool cleanings, openings, and closing tasks.</p>
+
+            <section class="mb-5">
+                <h2 class="mb-3">Task Analytics</h2>
+
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <div class="border rounded p-3 text-center">
+                            <h3>To Do</h3>
+                            <p id="todoCount">0</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <div class="border rounded p-3 text-center">
+                            <h3>In Progress</h3>
+                            <p id="progressCount">0</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <div class="border rounded p-3 text-center">
+                            <h3>Completed</h3>
+                            <p id="completedCount">0</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-5">
+                <h2 class="mb-3">Add a New Task</h2>
+
+                <div class="border rounded p-4">
+                    <p>Use the form below to add a new task</p>
+
+                    <form id="taskForm">
+
+                        <div class="mb-3">
+                            <label for="taskName" class="form-label">Task Name</label>
+                            <input type="text" id="taskName" class="form-control" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="customerName" class="form-label">Customer Name</label>
+                            <input type="text" id="customerName" class="form-control" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="serviceType" class="form-label">Service Type</label>
+                            <select id="serviceType" class="form-select" required>
+                                <option value="" selected disabled>Select a Service</option>
+                                <option value="Pool Cleaning">Pool Cleaning</option>
+                                <option value="Pool Opening">Pool Opening</option>
+                                <option value="Pool Closing">Pool Closing</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="assignedWorker" class="form-label">Assigned Worker</label>
+                            <select id="assignedWorker" class="form-select" required>
+                                <option value="Dylan Devine">Dylan Devine</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="dueDate" class="form-label">Due Date</label>
+                            <input type="date" id="dueDate" class="form-control" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="taskStatus" class="form-label">Task Status</label>
+                            <select id="taskStatus" class="form-select" required>
+                                <option value="To Do">To Do</option>
+                                <option value="In Progress">In Progress</option>
+                                <option value="Completed">Completed</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">
+                            Add Task
+                        </button>
+                    </form>
+                </div>
+
+
+            </section>
+
+            <section class="mb-5">
+                <h2 class="mb-3">Task List</h2>
+
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Task Name</th>
+                                <th>Customer</th>
+                                <th>Service</th>
+                                <th>Worker</th>
+                                <th>Due Date</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="taskTable">
+                            <tr>
+                                <td colspan="7">No tasks yet.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="mb-5">
+                <h2 class="mb-3">Task Board</h2>
+            </section>
+
+            <section class="mb-5">
+                <h2 class="mb-3">Latest Activity</h2>
+            </section>
+        </main>
         
         <div id="footer"></div>
     </body>
