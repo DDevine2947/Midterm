@@ -99,6 +99,8 @@ if (service && poolSize && cleaningType && calculateButton) {
 
 let tasks = [];
 
+let editTaskIndex = -1;
+
 function displayTasks() {
     const taskTable = document.querySelector("#taskTable");
 
@@ -108,8 +110,22 @@ function displayTasks() {
 
     taskTable.innerHTML = "";
 
+    const searchText = document.querySelector("#taskSearch");
+
+    let searchValue = "";
+
+    if(searchText) {
+        searchValue = searchText.value.toLowerCase();
+    }
+
     for (let i = 0; i < tasks.length; i++) {
         const task = tasks[i];
+
+        if (!task.name.toLowerCase().includes(searchValue) &&
+            !task.customer.toLowerCase().includes(searchValue)
+        ) {
+            continue;
+        }
 
         taskTable.innerHTML +=  `
             <tr>
@@ -120,6 +136,10 @@ function displayTasks() {
                 <td>${task.date}</td>
                 <td>${task.status}</td>
                 <td>
+                    <button class="btn btn-warning editTask" data-index="${i}">
+                        Edit
+                    </button>
+
                     <button class="btn btn-danger deleteTask" data-index="${i}">
                         Delete
                     </button>
@@ -186,7 +206,13 @@ if (taskForm) {
             status: taskStatus
         };
 
-        tasks.push(newTask);
+        if (editTaskIndex === -1) {
+            tasks.push(newTask);
+        } else {
+
+            tasks[editTaskIndex] = newTask;
+            editTaskIndex = -1;
+        }
 
         displayTasks();
 
@@ -194,7 +220,7 @@ if (taskForm) {
 
         taskForm.reset();
 
-        alert("Task has been added");
+        alert("Tasks has been updated");
     });
 
         const taskTable = document.querySelector("#taskTable");
@@ -211,6 +237,29 @@ if (taskForm) {
                     displayTasks();
                     updateTaskAnalytics();
                 }
+
+                else if (event.target.classList.contains("editTask")) {
+
+                    const taskIndex = Number(event.target.dataset.index);
+                    const task = tasks[taskIndex];
+
+                    editTaskIndex = taskIndex;
+
+                    document.querySelector("#taskName").value = task.name;
+                    document.querySelector("#customerName").value = task.customer;
+                    document.querySelector("#serviceType").value = task.service;
+                    document.querySelector("#assignedWorker").value = task.worker;
+                    document.querySelector("#dueDate").value = task.date;
+                    document.querySelector("#taskStatus").value = task.status;
+                }
             })
+
+            const taskSearch = document.querySelector("#taskSearch");
+
+            if(taskSearch) {
+                taskSearch.addEventListener("input", function () {
+                    displayTasks();
+                })
+            }
         }
 }
