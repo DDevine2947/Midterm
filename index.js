@@ -121,6 +121,14 @@ function displayTasks() {
     for (let i = 0; i < tasks.length; i++) {
         const task = tasks[i];
 
+        const taskFilter = document.querySelector("#taskFilter");
+
+        if (taskFilter && taskFilter.value !== "All") {
+            if (task.status !== taskFilter.value) {
+                continue;
+            }
+        }
+
         if (!task.name.toLowerCase().includes(searchValue) &&
             !task.customer.toLowerCase().includes(searchValue)
         ) {
@@ -142,6 +150,10 @@ function displayTasks() {
 
                     <button class="btn btn-danger deleteTask" data-index="${i}">
                         Delete
+                    </button>
+
+                    <button class="completeTask" data-index="${i}">
+                        Completed
                     </button>
                 </td>
             </tr>
@@ -230,7 +242,7 @@ if (taskForm) {
                 
                 if (event.target.classList.contains("deleteTask")) {
                     
-                    const taskIndex = event.target.dataset.index;
+                    const taskIndex = Number(event.target.dataset.index);
 
                     tasks.splice(taskIndex, 1);
 
@@ -252,6 +264,15 @@ if (taskForm) {
                     document.querySelector("#dueDate").value = task.date;
                     document.querySelector("#taskStatus").value = task.status;
                 }
+
+                else if (event.target.classList.contains("completeTask")) {
+                    const taskIndex = Number(event.target.dataset.index);
+
+                    tasks[taskIndex].status = "Completed";
+
+                    displayTasks();
+                    updateTaskAnalytics();
+                }
             })
 
             const taskSearch = document.querySelector("#taskSearch");
@@ -260,6 +281,14 @@ if (taskForm) {
                 taskSearch.addEventListener("input", function () {
                     displayTasks();
                 })
+            }
+
+            const taskFilter = document.querySelector("#taskFilter");
+
+            if (taskFilter) {
+                taskFilter.addEventListener("change", function () {
+                    displayTasks();
+                });
             }
         }
 }
