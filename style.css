@@ -1,3 +1,4 @@
+/* sets the default styles for the entire webpage*/
 body {
     background-color: #e6dfdf;
     color: #0c3553;
@@ -5,36 +6,38 @@ body {
     margin: 0;
     padding: 0;
 }
+/* styles the header */
 header {
     background: linear-gradient(to right, blue, red);
     color: white;
     padding: 25px;
     text-align: center;
 }
-
+/* makes the main content at least 60% of the viewport height */
 main {
     min-height: 60vh;
 }
-
+/*styles the footer section */
 footer {
     background-color: #16354a;
     color: white;
-    padding: 20px;
+    padding: 30px 0 10px;
+    margin-top: 40px;
 }
-
+/* adds a blue to red gradient to the nav bar */
 .navbar {
     background: linear-gradient(to right, blue, red);
 }
-
+/* styles the website name in the nav bar */
 .navbar-brand {
     font-size: 1.5rem;
     font-weight: bold;
 }
-
+/* sets the color of the navigation links */
 .navlink {
     color:black;
 }
-
+/* styles the FAQ question buttons */
 .faqQuestion {
     background: none;
     border: none;
@@ -43,4 +46,31 @@ footer {
     text-align: left;
     width: 100%;
     cursor: pointer;
+}
+/* applies the dark theme to the page */
+.dark-mode {
+    background-color: #0c3553;
+    color: white;
+}
+
+/* changes the navbar gradient when dark mode is turned o */
+.dark-mode .navbar {
+    background: linear-gradient(to right, rgb(14, 14, 73), rgb(87, 19, 19)) ;
+}
+
+/* changes cards, kanban columns, and tables in dark mode */
+.dark-mode .card, .dark-mode .kanban-column, .dark-mode table {
+    background-color: rgb(31, 17, 17);
+    color: white;
+}
+
+/* changes form fields to darker color */
+.dark-mode input, .dark-mode textarea, .dark-mode select {
+    background-color: #333;
+    color: white;
+    border-color: #555;
+}
+/* changes link colors in dark mode */
+.dark-mode a {
+    color: #8ab4f8
 }
