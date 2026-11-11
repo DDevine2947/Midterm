@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us">
     <head>
+
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name = "description" content="Learn about AquaDevine Pool Cleaning and Maintenance.">
@@ -16,19 +17,28 @@
     </head>
 
     <body>
+        <!--placeholder where the header.html is loaded-->
         <div id="header"></div>
+
         <main class="container py-4">
+
             <section class="mb-4">
+
                 <h2>About AquaDevine</h2>
                 <p>
                     AquaDevine helps our pool maintenance teams organize their tasks and keep track of their work
                 </p>
+
             </section>
 
+            <!--Section describing the main features of AquaDevine-->
             <section class="mb-4">
+
                 <h2 class="text-center">What We Do at AquaDevine</h2>
 
+                <!--Bootstrap row-->
                 <div class="row">
+
                     <div class="col-md-4 mb-3">
                         <h3>Task Management</h3>
                         <p>Organize pool cleaning and maintenance tasks right here on our page</p>
@@ -46,14 +56,18 @@
                     
 
                 </div>
+
             </section>
 
-
+            <!--Section introducing AquaDevine team-->
             <section class="mb-4">
+
                 <h2 class="text-center">Meet Our Team</h2>
 
+                <!--Bootstrap row containing team member cards-->
                 <div class="row">
 
+                    <!-- Contains employees information and loads images from images folder-->
                     <div class="col-md-4 mb-3 text-center">
                         <div class="border rounded p-3 h-100">
                             <h3>Project Manager</h3>
@@ -91,11 +105,14 @@
                     </div>
                 </div>
             </section>
+
+            <!-- Gallery using Bootstrap carousel that gets images from imagage folder-->
             <section>
                 <h2 class="text-center">Pool Care Gallery</h2>
 
             <div id="poolCarousel" class="carousel slide">
 
+                <!--Contains the images that are displayed in the carousel-->
                 <div class="carousel-inner">
 
                     <div class="carousel-item active">
@@ -124,10 +141,12 @@
 
                 </div>
 
+                <!-- Button to move to the previous image-->
                 <button class="btn btn-primary mt-3" type="button" data-bs-target="#poolCarousel" data-bs-slide="prev">
                     Previous
                 </button>
 
+                <!-- Button to move to the next image-->
                 <button class="btn btn-primary mt-3" type="button" data-bs-target="#poolCarousel" data-bs-slide="next">
                     Next
                 </button>
@@ -135,6 +154,7 @@
             </section>
         </main>
         
+        <!-- Placeholder for shared footer-->
         <div id="footer"></div>
     </body>
 </html>

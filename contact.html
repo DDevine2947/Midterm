@@ -16,26 +16,42 @@
     </head>
 
     <body>
+
+        <!--placeholder where the header.html is loaded-->
         <div id="header"></div>
+
+        <!--Main content of contact page-->
         <main class="container py-4">
+
+            <!--section containg links to social media-->
             <section class="mb-4">
+
                 <h3>
                     Follow AquaDevine on Social Media
                 </h3>
 
+                <!--link to instagram, opening the website in a new tab-->
                 <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
                     Instagram
                 </a>
+
                 <p></p>
+
+                <!-- Link to X which opens in a new tab-->
                 <a href="https://www.X.com" target="_blank" rel="noopener noreferrer">
                     X / Twitter
                 </a>
                 
             </section>
+
+            <!--Section showing AquaDevines location on google maps-->
             <section class="mb-4">
+
                 <h3>We are located currently in Long Island, New York!</h3>
+
                 <p>Find our location on the map below.</p>
 
+                <!--An embedded google maps location-->
                 <iframe
                     src="https://www.google.com/maps?q=Long+Island,New+York&output=embed"
                     title="Here is our current location"
@@ -43,46 +59,54 @@
                     height="250"
                     loading="lazy">
                 </iframe>
+
             </section>
 
             <h2>Contact Us!</h2>
 
             <p>Have a question about any of our services? Please feel free to send us a message below.</p>
 
-
-
+            <!-- Contact form to submit questions-->
             <form id="contactform">
 
+                <!--Text input field for visitors name-->
                 <div class="mb-3">
                     <label for="name" class="form-label">Full Name</label>
                     <input type="text" id="name" class="form-control" required>
                 </div>
 
+                <!--Email field which requires a @ to continue-->
                 <div class="mb-3">
                     <label for="email" class="form-label">Email Address</label>
                     <input type="email" id="email" class="form-control" required>
                 </div>
 
+                <!--Text input-->
                 <div class="mb-3">
                     <label for="subject" class="form-label">Subject</label>
                     <input type="text" id="subject" class="form-control" required>
                 </div>
 
+                <!--message area with larger body to put text into-->
                 <div class="mb-3">
                     <label for="message" class="form-label">What would you like to ask us?</label>
                     <textarea id="message" class="form-control" rows="5" required></textarea>
                 </div>
 
+                <!-- Button used to submit form-->
                 <button type="submit" class="btn btn-primary">
                     Submit Your Message
                 </button>
 
             </form>
 
+            <!-- Placeholder that javascript will fill with confirmation text -->
             <p id="submitConfirm" class="mt-3" role="status"></p>
+
         </main>
 
-        
+        <!-- Placeholder for shared footer-->
         <div id="footer"></div>
+
     </body>
 </html>
