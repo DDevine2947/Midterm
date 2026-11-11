@@ -16,59 +16,106 @@
     </head>
 
     <body>
+
+        <!--placeholder where the header.html is loaded-->
         <div id="header"></div>
         
+        <!-- Holds the main content of the file-->
         <main class="container py-4">
 
             <h1 class="text-center mb-4">AquaDevine Task Manager</h1>
 
             <p class="text-center mb-5">Manage pool cleanings, openings, and closing tasks.</p>
 
+            <!-- Displays the number of tasks in each status-->
             <section class="mb-5">
                 <h2 class="mb-3">Task Analytics</h2>
 
+                <!-- bootstrap row organizes the cards-->
                 <div class="row">
+
+                    <!-- Card displaying number of tasks and javascript updates the number-->
                     <div class="col-md-4 mb-3">
+
                         <div class="border rounded p-3 text-center">
                             <h3>To Do</h3>
-                            <p id="todoCount">0</p>
+                            <p id="todoTasks">0</p>
                         </div>
                     </div>
 
                     <div class="col-md-4 mb-3">
                         <div class="border rounded p-3 text-center">
                             <h3>In Progress</h3>
-                            <p id="progressCount">0</p>
+                            <p id="inProgressTasks">0</p>
                         </div>
                     </div>
 
                     <div class="col-md-4 mb-3">
                         <div class="border rounded p-3 text-center">
                             <h3>Completed</h3>
-                            <p id="completedCount">0</p>
+                            <p id="completedTasks">0</p>
                         </div>
                     </div>
                 </div>
             </section>
 
+            <!-- kanban board organizes tasks into columns based on status -->
+            <section>
+                <h2>Pool Cleaning Task Board</h2>
+
+                <!-- Column for each task based on havent started, in progress, and finished-->
+                <div class="kanban-column">
+                    <h3>To Do</h3>
+                    <!-- javascript inserts cards-->
+                    <div id="todoCol">
+                        <p>No tasks yet.</p>
+                    </div>
+                </div>
+
+                <div class="kanban-column">
+                    <h3>In Progress</h3>
+                    <div id="inProgressCol">
+                        <p>No tasks yet.</p>
+                    </div>
+                </div>
+
+                <div class="kanban-column">
+                    <h3>Completed</h3>
+                    <div id="completedCol">
+                        <p>No tasks yet.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- form section for creating and editing tasks-->
             <section class="mb-5">
                 <h2 class="mb-3">Add a New Task</h2>
 
                 <div class="border rounded p-4">
                     <p>Use the form below to add a new task</p>
 
+                    <!-- javascript handles the submission-->
                     <form id="taskForm">
 
+                        <!-- input for the task name-->
                         <div class="mb-3">
                             <label for="taskName" class="form-label">Task Name</label>
                             <input type="text" id="taskName" class="form-control" required>
                         </div>
 
+                        <!-- text area to describe task-->
+                        <div class="mb-3">
+                            <label for="taskDesc" class="form-label">Task Description</label>
+                            <textarea id="taskDesc" class="form-control" required></textarea>
+                        </div>
+
+                        <!-- Input for customer name-->
                         <div class="mb-3">
                             <label for="customerName" class="form-label">Customer Name</label>
                             <input type="text" id="customerName" class="form-control" required>
                         </div>
 
+                        <!-- dropdown for choosing type of service-->
                         <div class="mb-3">
                             <label for="serviceType" class="form-label">Service Type</label>
                             <select id="serviceType" class="form-select" required>
@@ -79,6 +126,7 @@
                             </select>
                         </div>
 
+                        <!-- dropdown for assigning worker, currently only one option; myself :)-->
                         <div class="mb-3">
                             <label for="assignedWorker" class="form-label">Assigned Worker</label>
                             <select id="assignedWorker" class="form-select" required>
@@ -86,11 +134,13 @@
                             </select>
                         </div>
 
+                        <!-- date input fr task deadline-->
                         <div class="mb-3">
                             <label for="dueDate" class="form-label">Due Date</label>
                             <input type="date" id="dueDate" class="form-control" required>
                         </div>
 
+                        <!-- dropdown for selecting tasks current status-->
                         <div class="mb-3">
                             <label for="taskStatus" class="form-label">Task Status</label>
                             <select id="taskStatus" class="form-select" required>
@@ -100,6 +150,7 @@
                             </select>
                         </div>
 
+                        <!-- submits the form-->
                         <button type="submit" class="btn btn-primary">
                             Add Task
                         </button>
@@ -109,14 +160,17 @@
 
             </section>
 
+            <!-- section displaying all tasks in a table-->
             <section class="mb-5">
                 <h2 class="mb-3">Task List</h2>
 
+                <!-- search field for finding tasks by name-->
                 <div class="mb-3">
                     <label for="taskSearch" class="form-label">Search Tasks</label>
                     <input type="text" id="taskSearch" class="form-control">
                 </div>
 
+                <!-- dropdown for filtering tasks by status-->
                 <div class="mb-3">
                     <label for="taskFilter" class="form-label">Filter your tasks by status:</label>
 
@@ -128,11 +182,15 @@
                     </select>
                 </div>
 
+                <!-- makes the table scroll horizontally on smaller screens-->
                 <div class="table-responsive">
+                    <!-- table displaying task details-->
                     <table class="table table-bordered table-striped">
+                        <!-- column headings for the task info-->
                         <thead>
                             <tr>
                                 <th>Task Name</th>
+                                <th>Description</th>
                                 <th>Customer</th>
                                 <th>Service</th>
                                 <th>Worker</th>
@@ -140,25 +198,20 @@
                                 <th>Status</th>
                                 <th>Actions</th>
                             </tr>
+
                         </thead>
+                        <!-- javascript adds task rows to this table body-->
                         <tbody id="taskTable">
                             <tr>
-                                <td colspan="7">No tasks yet.</td>
+                                <td colspan="8">No tasks yet.</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </section>
-
-            <section class="mb-5">
-                <h2 class="mb-3">Task Board</h2>
-            </section>
-
-            <section class="mb-5">
-                <h2 class="mb-3">Latest Activity</h2>
-            </section>
         </main>
         
+        <!-- Placeholder for shared footer-->
         <div id="footer"></div>
     </body>
 </html>

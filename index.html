@@ -15,81 +15,82 @@
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="index.js" defer></script>
 </head>
 
 <body>
 
+    <!--placeholder where the header.html is loaded-->
     <div id="header"></div>
     
+    <!-- Main content of Home Page-->
     <main class="container">
 
-        <section>
+        <!-- Welcome section with a link to task management and dark mode-->
+        <section class="mb-4">
             <h2>Welcome to AquaDevine</h2>
             <p>Manage your pool cleaning and maintenance tasks here.</p>
+            
+            <!-- Link to Tasks page-->
             <a href="tasks.html">Manage Tasks</a>
+
+            <!--Button that changes page to dark mode / while in dark mode text for button changes to light mode-->
+            <button id="darkMode">Dark Mode</button>
+
         </section>
 
-   
-    <section>
-        <h2>Task Dashboard</h2>
+        <!-- Section that pulls weather info from an API-->
+        <section class="my-4 text-center">
+            <h2>Current Weather</h2>
 
-        <p>Total Tasks: <span id="totalTasks">0</span></p>
-        <p>To Do: <span id="todoTasks">0</span></p>
-        <p>In Progress: <span id="inProgressTasks">0</span></p>
-        <p>Completed: <span id="completedTasks">0</span></p>
-    </section>
-   
-    <section>
-        <h2>Task Analytics</h2>
+            <!-- Javascript inserts weather info here-->
+            <div class="border rounded p-3">
+                <p id="weather">Loading weather</p>
+            </div>
 
-        <p>To Do: <span id="todoChart">0 tasks</span></p>
-        <progress id="todoBar" value="0" max="100"></progress>
+            <!-- Link to give credit to Open-Meteo and bring you to their page on a new tab-->
+            <p>
+                Weather data
+                <a href="https://open-meteo.com/" target="_blank">
+                    Open-Meteo
+                </a>
+            </p>
+        </section>
 
-        <p>In Progress: <span id="progressChart">0 tasks</span></p>
-        <progress id="progressBar" value="0" max="100"></progress>
+        <!-- Dashboard to display the number of tasks in each status-->
+        <section class="mb-4">
+            <h2>Task Dashboard</h2>
 
-        <p>Completed: <span id="completedChart">0 tasks</span></p>
-        <progress id="completedBar" value="0" max="100"></progress>
-    </section>
+            <!-- Task totals are updated dynamically with javascript-->
+            <p>Total Tasks: <span id="totalTasks">0</span></p>
+            <p>To Do: <span id="todoTasks">0</span></p>
+            <p>In Progress: <span id="inProgressTasks">0</span></p>
+            <p>Completed: <span id="completedTasks">0</span></p>
+        </section>
     
-    <section>
-        <h2>Pool Cleaning Task Board</h2>
+        <!-- Section containing a chart with the task information-->
+        <section class="mb-4">
+            <h2>Task Analytics</h2>
 
-        <div class="kanban-column">
-            <h3>To Do</h3>
-            <div id="todoColumn">
-                <p>No tasks yet.</p>
-            </div>
-        </div>
+            <!-- Canvas element where chart.js displays a task chart-->
+            <canvas id="taskChart"></canvas>
+        </section>
 
-        <div class="kanban-column">
-            <h3>In Progress</h3>
-            <div id="inProgressColumn">
-                <p>No tasks yet.</p>
-            </div>
-        </div>
+        <!-- Section to display the latest activity on the webpage-->
+        <section class="mb-4">
+            <h2>Latest Activity</h2>
 
-        <div class="kanban-column">
-            <h3>Completed</h3>
-            <div id="completedColumn">
-                <p>No tasks yet.</p>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <h2>Latest Activity</h2>
-
-        <ul id="activityList">
-            <li>No recent activity yet.</li>
-        </ul>
-    </section>
+            <!-- Javascript will update this list with the recent activity-->
+            <ul id="activityList">
+                <li>No recent activity yet.</li>
+            </ul>
+        </section>
 
     </main>
 
-    <div id="footer">
-    </div>
+    <!-- Placeholder for shared footer-->
+    <div id="footer"></div>
 
 </body>
 </html>
